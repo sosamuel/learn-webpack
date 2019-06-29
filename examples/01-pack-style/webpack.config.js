@@ -13,7 +13,15 @@ const baseCssLoaders = [
     }
   },
   {
-    loader: "css-loader"
+    loader: "css-loader",
+    options: {
+      modules: {
+        localIdentName: "__[name]_[local]_[hash:6]"
+      }
+    }
+  },
+  {
+    loader: "postcss-loader"
   }
 ];
 
