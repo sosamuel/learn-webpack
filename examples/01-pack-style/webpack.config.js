@@ -5,25 +5,39 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const devMode = process.env.NODE_ENV !== "production";
 
+const baseCssLoaders = [
+  {
+    loader: MiniCssExtractPlugin.loader,
+    options: {
+      hmr: devMode
+    }
+  },
+  {
+    loader: "css-loader"
+  }
+];
+
 module.exports = {
   entry: path.resolve(__dirname, "src/index.js"),
   output: {
-    filename: "[name].[hash:4].js",
+    filename: "[name].[hash:8].js",
     path: path.resolve(__dirname, "build")
   },
   module: {
     rules: [
       {
-        test: /.css$/,
+        test: /\.css$/,
+        use: [...baseCssLoaders]
+      },
+      {
+        test: /\.less$/,
         use: [
+          ...baseCssLoaders,
           {
-            loader: MiniCssExtractPlugin.loader,
+            loader: "less-loader",
             options: {
-              hmr: devMode
+              sourceMap: true
             }
-          },
-          {
-            loader: "css-loader"
           }
         ]
       },
@@ -46,8 +60,8 @@ module.exports = {
     }),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
-      filename: devMode ? "[name].[hash].css" : "[name].css",
-      chunkFilename: devMode ? "[id].[hash].css" : "[id].css"
+      filename: devMode ? "[name].[hash:8].css" : "[name].css",
+      chunkFilename: devMode ? "[id].[hash:8].css" : "[id].css"
     })
   ]
 };

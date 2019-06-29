@@ -32,6 +32,6 @@ inquirer
       console.log("build successfully!");
       const url = path.resolve(dir, "build", "index.html");
       console.log(`open ${url} in browser`);
-      await open(url);
+      // await open(url);
     });
   });
