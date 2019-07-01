@@ -26,12 +26,15 @@ inquirer
     const config = require(path.resolve(dir, "webpack.config.js"));
     webpack(config, async (err, stats) => {
       if (err || stats.hasErrors()) {
-        console.error(stats.toJson().errors);
+        console.error(err || stats.toJson().errors);
         return;
       }
       console.log("build successfully!");
       const url = path.resolve(dir, "build", "index.html");
-      console.log(`open ${url} in browser`);
-      // await open(url);
+      const isHtmlExist = fs.existsSync(url);
+      if (isHtmlExist) {
+        console.log(`open ${url} in browser`);
+        await open(url);
+      }
     });
   });
