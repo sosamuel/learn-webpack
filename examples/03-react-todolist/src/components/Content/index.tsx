@@ -1,6 +1,7 @@
 import React, { createContext, useState, useEffect, useContext } from "react";
 import TodoList from "../TodoList";
 import Header from "../Header";
+import Footer from "../Footer";
 import { IItem } from "../TodoItem/index.d";
 
 const todoListKey = "__WEBPACK_TODOLIST_E.X3";
@@ -61,6 +62,7 @@ export const Content = (props = {}): JSX.Element => {
     >
       <Header />
       <TodoList list={list} />
+      {list.length && <Footer total={list.length} />}
     </TodoContext.Provider>
   );
 };

@@ -1,33 +1,14 @@
 .header {
   display: flex;
-  margin-top: 48px;
-  height: 28px;
+  height: 48px;
 }
 .header > input {
   flex: 1;
   width: 300px;
-  padding: 0 6px;
+  font-size: 20px;
+  padding: 0 12px 0 24px;
+  border: 0 none;
 }
 .header > input:focus {
   outline: none;
-}
-.header > button {
-  margin-left: 12px;
-  width: 80px;
-  border: 0 none;
-  border-radius: 2px;
-  background: rgba(210, 189, 203, 1);
-  color: #fff;
-  font-size: 14px;
-  font-weight: 500;
-}
-.header > button:focus {
-  outline: none;
-}
-
-.header > button:hover {
-  background: rgba(210, 189, 203, 0.7);
-}
-.header > button:active {
-  background: rgba(210, 189, 203, 0.85);
 }

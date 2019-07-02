@@ -21,6 +21,7 @@ const Header = () => {
   return (
     <div className={styles.header}>
       <input
+        placeholder="enter todo item"
         value={title}
         onChange={e => setTitle(e.target.value)}
         onKeyPress={e => {
@@ -30,7 +31,6 @@ const Header = () => {
           submit();
         }}
       />
-      <button onClick={submit}>ok</button>
     </div>
   );
 };
