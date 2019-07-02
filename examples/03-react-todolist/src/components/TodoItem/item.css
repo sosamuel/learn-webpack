@@ -1,0 +1,18 @@
+.itemWrapper {
+  display: flex;
+  align-items: center;
+  height: 32px;
+  border-radius: 4px;
+  border: 1px solid #efefef;
+  margin: 12px 0;
+  padding: 0 12px;
+}
+
+.itemWrapper > input {
+  margin-right: 5px;
+}
+.itemWrapper > p {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

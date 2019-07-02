@@ -1,0 +1,33 @@
+.header {
+  display: flex;
+  margin-top: 48px;
+  height: 28px;
+}
+.header > input {
+  flex: 1;
+  width: 300px;
+  padding: 0 6px;
+}
+.header > input:focus {
+  outline: none;
+}
+.header > button {
+  margin-left: 12px;
+  width: 80px;
+  border: 0 none;
+  border-radius: 2px;
+  background: rgba(210, 189, 203, 1);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+}
+.header > button:focus {
+  outline: none;
+}
+
+.header > button:hover {
+  background: rgba(210, 189, 203, 0.7);
+}
+.header > button:active {
+  background: rgba(210, 189, 203, 0.85);
+}

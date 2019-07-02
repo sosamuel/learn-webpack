@@ -1,0 +1,14 @@
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+:global(#root) {
+  width: 400px;
+  margin: auto;
+  height: 100%;
+  overflow: auto;
+}
