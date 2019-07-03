@@ -4,7 +4,8 @@ const fs = require("fs");
 const webpack = require("webpack");
 const open = require("open");
 
-const dirs = fs.readdirSync("./examples");
+const rootDir = process.cwd();
+const dirs = fs.readdirSync(path.resolve(rootDir, "./examples"));
 
 if (!dirs.length) {
   console.log("you have no example here, bye~ ");
@@ -21,16 +22,19 @@ inquirer
     }
   ])
   .then(answers => {
-    const dir = path.resolve(__dirname, "examples", answers.pack);
+    const dir = path.resolve(rootDir, "examples", answers.pack);
     const config = require(path.resolve(dir, "webpack.config.js"));
     webpack(config, async (err, stats) => {
       if (err || stats.hasErrors()) {
-        console.error(stats.toJson().errors);
+        console.error(err || stats.toJson().errors);
         return;
       }
       console.log("build successfully!");
       const url = path.resolve(dir, "build", "index.html");
-      console.log(`open ${url} in browser`);
-      await open(url);
+      const isHtmlExist = fs.existsSync(url);
+      if (isHtmlExist) {
+        console.log(`open ${url} in browser`);
+        await open(url);
+      }
     });
   });

@@ -1,0 +1,22 @@
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+:global(#root) {
+  height: 100%;
+  overflow: auto;
+}
+:global(#root) > div {
+  width: 500px;
+  border-radius: 5px;
+  margin: auto;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  box-shadow: 1px 1px 3px 1px rgba(1, 1, 1, 0.3);
+  border: 1px solid #a79a9a;
+  overflow: hidden;
+}

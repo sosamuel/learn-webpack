@@ -1,0 +1,35 @@
+{
+  "name": "03-react-todolist",
+  "version": "1.0.0",
+  "main": "src/index.tsx",
+  "author": "Samuel Chia",
+  "license": "MIT",
+  "scripts": {
+    "dev": "webpack-dev-server --config ./scripts/webpack.config.dev.js",
+    "build": "webpack --config ./scripts/webpack.config.dev.js"
+  },
+  "dependencies": {
+    "@types/react": "^16.8.22",
+    "@types/react-dom": "^16.8.4",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-react": "^7.0.0",
+    "@types/webpack-env": "^1.13.9",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.0.0",
+    "css-modules-typescript-loader": "^2.0.4",
+    "mini-css-extract-plugin": "^0.7.0",
+    "react-hot-loader": "^4.12.0",
+    "size-plugin": "^1.2.0",
+    "speed-measure-webpack-plugin": "^1.3.1",
+    "style-loader": "^0.23.1",
+    "typescript": "^3.5.2",
+    "webpack": "^4.35.0",
+    "webpack-dashboard": "^3.0.7",
+    "webpack-dev-server": "^3.7.2"
+  }
+}

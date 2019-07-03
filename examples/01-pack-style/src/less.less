@@ -1,0 +1,23 @@
+body {
+  #root {
+    font-size: 14px;
+    display: flex !important;
+
+    .header {
+      display: grid;
+      grid-gap: 33px;
+      grid-template:
+        "head head  head" 1fr
+        "nav  main  main" minmax(100px, 1fr)
+        "nav  foot  foot" 2fr /
+        1fr 100px 1fr;
+      font-size: 15px;
+    }
+    .body {
+      font-size: 16px;
+    }
+    .footer {
+      font-size: 17px;
+    }
+  }
+}

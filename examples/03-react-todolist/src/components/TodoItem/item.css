@@ -1,0 +1,47 @@
+.itemWrapper {
+  display: flex;
+  align-items: center;
+  height: 48px;
+  border-bottom: 1px solid #e6e6e6;
+  border-top: 1px solid #e6e6e6;
+  padding: 0 12px;
+}
+.itemWrapper:hover .close {
+  display: block;
+}
+
+.close {
+  display: none;
+  color: #aaa;
+  width: 32px;
+  height: 32px;
+  text-align: center;
+  cursor: pointer;
+  font-size: 26px;
+  line-height: 26px;
+  font-weight: lighter;
+}
+.close::after {
+  content: "x";
+}
+.itemWrapper + .itemWrapper {
+  border-top: 0;
+}
+
+.itemWrapper > input {
+  margin-right: 5px;
+  width: 30px;
+  height: 30px;
+}
+.itemWrapper > p {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 18px;
+  color: #999;
+  padding-left: 5px;
+  flex: 1;
+}
+.middleLine {
+  text-decoration: line-through;
+}

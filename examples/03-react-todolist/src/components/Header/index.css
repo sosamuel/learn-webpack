@@ -1,0 +1,14 @@
+.header {
+  display: flex;
+  height: 48px;
+}
+.header > input {
+  flex: 1;
+  width: 300px;
+  font-size: 20px;
+  padding: 0 12px 0 24px;
+  border: 0 none;
+}
+.header > input:focus {
+  outline: none;
+}
