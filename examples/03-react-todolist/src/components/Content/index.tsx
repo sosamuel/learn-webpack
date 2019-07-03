@@ -10,9 +10,9 @@ const parsedHistory = JSON.parse(historyList);
 const initList: IItem[] = Array.isArray(parsedHistory) ? parsedHistory : [];
 export interface ITodoContext {
   list: IItem[];
-  add: (item: any) => void;
+  add: (item: IItem) => void;
   modified: (uuid: string, checked: boolean) => void;
-  remove: () => void;
+  remove: (item: IItem) => void;
   init: (list: IItem[]) => void;
 }
 
@@ -32,12 +32,12 @@ export const TodoContext = createContext(initCtx);
 
 export const Content = (props = {}): JSX.Element => {
   const [list, setState] = useState(initList);
-  const add = (item: any) => {
+  const add = (item: IItem) => {
     const afterList = [...list, item];
     setState(afterList);
   };
-  const remove = () => {
-    setState([...list]);
+  const remove = (item: IItem) => {
+    setState(list.filter(i => i.uuid !== item.uuid));
   };
   const init = (iList: IItem[]) => {
     setState(iList);
