@@ -42,3 +42,6 @@
   padding-left: 5px;
   flex: 1;
 }
+.middleLine {
+  text-decoration: line-through;
+}

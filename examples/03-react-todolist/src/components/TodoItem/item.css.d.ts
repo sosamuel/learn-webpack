@@ -3,6 +3,7 @@
 interface CssExports {
   'close': string;
   'itemWrapper': string;
+  'middleLine': string;
 }
 declare var cssExports: CssExports;
 export = cssExports;

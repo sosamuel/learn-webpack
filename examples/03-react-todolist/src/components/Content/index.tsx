@@ -14,6 +14,8 @@ export interface ITodoContext {
   modified: (uuid: string, checked: boolean) => void;
   remove: (item: IItem) => void;
   init: (list: IItem[]) => void;
+  selected: string;
+  changeSelect: (selected: string) => void;
 }
 
 const initCtx: ITodoContext = {
@@ -21,7 +23,9 @@ const initCtx: ITodoContext = {
   modified: () => {},
   add: () => {},
   remove: () => {},
-  init: () => {}
+  init: () => {},
+  selected: "active",
+  changeSelect: () => {}
 };
 
 const save = (list: any): void => {
@@ -47,9 +51,14 @@ export const Content = (props = {}): JSX.Element => {
     changeItem && (changeItem.checked = checked);
     setState([...list]);
   };
+  const [selected, changeSelect] = useState("all");
   useEffect(() => {
     save(list);
   }, [list]);
+  let currentList = list;
+  if (selected !== "all") {
+    currentList = list.filter(i => i.checked === (selected !== "active"));
+  }
   return (
     <TodoContext.Provider
       value={{
@@ -57,11 +66,13 @@ export const Content = (props = {}): JSX.Element => {
         add,
         remove,
         modified,
-        init
+        init,
+        selected,
+        changeSelect
       }}
     >
       <Header />
-      <TodoList list={list} />
+      <TodoList list={currentList} />
       {list.length && <Footer total={list.length} />}
     </TodoContext.Provider>
   );

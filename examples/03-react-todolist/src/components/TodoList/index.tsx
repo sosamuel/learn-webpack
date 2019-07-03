@@ -5,11 +5,9 @@ import TodoItem from "../TodoItem";
 const TodoList = ({ list }: TodoListProps) => {
   return (
     <>
-      {list
-        .filter(item => !item.checked)
-        .map(item => (
-          <TodoItem key={item.uuid} item={item} />
-        ))}
+      {list.map(item => (
+        <TodoItem key={item.uuid} item={item} />
+      ))}
     </>
   );
 };
